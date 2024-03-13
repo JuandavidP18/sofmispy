@@ -1,0 +1,566 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords"
+        content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
+    <!-- Favicon icon -->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <!-- font css -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css' %}">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" id="main-style-link">
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+    <!-- [ Mobile header ] start -->
+    <div class="pc-mob-header pc-header">
+        <div class="pcm-logo">
+            <img src="assets/images/logo_2.png" alt="" class="logo logo-lg">
+        </div>
+        <div class="pcm-toolbar">
+            <a href="#!" class="pc-head-link" id="mobile-collapse">
+                <div class="hamburger hamburger--arrowturn">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                <i data-feather="align-right"></i>
+            </a>
+            <a href="#!" class="pc-head-link" id="header-collapse">
+                <i data-feather="more-vertical"></i>
+            </a>
+        </div>
+    </div>
+    <!-- [ Mobile header ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="index.php" class="b-brand">
+                    <!-- ========   change your logo hear   ============ -->
+                    <img src="images\logo_2.png" alt="" class="logo logo-lg" height="35">
+                    <img src="images/logo.png" alt="" class="logo logo-sm">
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption">
+                        <label>Navegacion</label>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'dashboard' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">home</i></span><span
+                                class="pc-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="pc-item pc-caption">
+                        <label>Elementos</label>
+                        <span>Modulos</span>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'ventas' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">shop</i></span><span
+                                class="pc-mtext">Ventas</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'inventario' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">power</i></span><span
+                                class="pc-mtext">Inventario</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'compras' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Compras</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'reportes' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Reportes</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="pc-header ">
+        <div class="header-wrapper">
+            <div class="mr-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link active dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu pc-h-dropdown">
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">account_circle</i>
+                                <span>Mi Cuenta</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">settings</i>
+                                <span>Configuraciones</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ml-auto">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="material-icons-two-tone">search</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+                            <form class="px-3" id="searchForm">
+                                <div class="form-group mb-0 d-flex align-items-center">
+                                    <i data-feather="search"></i>
+                                    <input type="search" id="searchInput" class="form-control border-0 shadow-none"
+                                        placeholder="Buscar aquí...">
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{% static 'images/users.jpg' %}"
+                                alt="user-image" class="user-avtar">
+                            <span>
+                                <span class="user-name">Juan David</span>
+                                <span class="user-desc">Administrator</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+
+                            <a href="auth-signin.html" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar Sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Dashboard sale</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Dashboard resumen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="card flat-card">
+                    <!-- support-section end -->
+                    <!-- support-section start -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card prod-p-card background-pattern">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-0">
+                                        <div class="col">
+                                            <h6 class="m-b-5">Total Productos</h6>
+                                            <h3 class="m-b-0">
+                                                <font color="#5f4dee">${{ total_dinero_productos }}</font>
+                                            </h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="material-icons-two-tone text-primary">card_giftcard</i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card prod-p-card bg-primary background-pattern-white">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-0">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Productos Activos</h6>
+                                            <h3 class="m-b-0">
+                                                <font color="white">{{ cantidad_productos_activos }}</font>
+                                            </h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="material-icons-two-tone text-white">monetization_on</i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card prod-p-card bg-primary background-pattern-white">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-0">
+                                        <div class="col">
+                                            <h6 class="m-b-5 text-white">Nuevos Productos</h6>
+                                            <h3 class="m-b-0">
+                                                <font color="white">{{ nuevos_productos }}</font>
+                                            </h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="material-icons-two-tone text-white">local_mall</i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card prod-p-card background-pattern">
+                                <div class="card-body">
+                                    <div class="row align-items-center m-b-0">
+                                        <div class="col">
+                                            <h6 class="m-b-5">Productos Agotados</h6>
+                                            <h3 class="m-b-0">
+                                                <font color="#5f4dee">{{ cantidad_productos_agotados }}</font>
+                                            </h3>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="material-icons-two-tone text-primary">local_offer</i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-columns">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Reporte de ventas</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row pb-2">
+                                    <!-- Imprime todos los productos y oculta la lista -->
+                                    <div class="col-auto m-b-10">
+                                        <h3 id="totalProductos" class="mb-1"></h3>
+                                        <span>Total de Productos</span>
+                                    </div>
+                                </div>
+                                <canvas id="miGrafico" width="400" height="200"></canvas>
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                <!-- Oculta los datos de ventas en un div -->
+                                <div id="ventasData" style="display: none;">
+                                    {% for venta in ventas %}
+                                    <div class="venta" data-hora="{{ venta.fecha|date:'H:i' }}"
+                                        data-total="{{ venta.total }}"></div>
+                                    {% endfor %}
+                                </div>
+                                <!-- Script para procesar los datos y dibujar el gráfico -->
+                                <script>
+                                    // Obtener los datos de ventas del div oculto
+                                    var ventasElements = document.querySelectorAll('.venta');
+                                    var horas = [];
+                                    var totalVentas = [];
+                                    ventasElements.forEach(function (element) {
+                                        horas.push(element.getAttribute('data-hora'));
+                                        totalVentas.push(parseFloat(element.getAttribute('data-total')));
+                                    });
+                    
+                                    // Configurar los datos para el gráfico
+                                    var data = {
+                                        labels: horas,
+                                        datasets: [{
+                                            label: 'Ventas por hora',
+                                            backgroundColor: '#7267EF',
+                                            borderColor: '#7267EF',
+                                            borderWidth: 1,
+                                            data: totalVentas
+                                        }]
+                                    };
+                    
+                                    // Configurar las opciones del gráfico
+                                    var options = {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    };
+                    
+                                    // Dibujar el gráfico
+                                    var ctx = document.getElementById('miGrafico').getContext('2d');
+                                    var miGrafico = new Chart(ctx, {
+                                        type: 'bar',
+                                        data: data,
+                                        options: options
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Estado de los productos</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="miGraficoBarras" width="400" height="200"></canvas>
+                                <!-- Imprime todos los productos y oculta la lista -->
+                                <ul id="productosLista" style="display: none;">
+                                    {% for producto in productos %}
+                                    <li class="producto" data-estado="{{ producto.estatus }}">
+                                        {{ producto.nombre }} - {{ producto.estatus }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                <!-- Script para procesar los datos y dibujar el gráfico -->
+                                <script>
+                                    // Obtener todos los productos de la lista oculta
+                                    var productosElements = document.querySelectorAll('.producto');
+                                    var exitoTotal = 0;
+                                    var agotadoTotal = 0;
+                                    var desactualizadoTotal = 0;
+                                    productosElements.forEach(function(element) {
+                                        var estado = element.getAttribute('data-estado');
+                                        switch (estado) {
+                                            case 'exito':
+                                                exitoTotal++;
+                                                break;
+                                            case 'agotado':
+                                                agotadoTotal++;
+                                                break;
+                                            case 'desactualizado':
+                                                desactualizadoTotal++;
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    });
+                    
+                                    // Configurar los datos para el gráfico
+                                    var data = {
+                                        labels: ['Éxito', 'Agotado', 'Desactualizado'],
+                                        datasets: [{
+                                            label: 'Cantidad de Productos',
+                                            data: [exitoTotal, agotadoTotal, desactualizadoTotal],
+                                            backgroundColor: [
+                                                '#ffffff00',
+                                                '#ffffff00',
+                                                '#ffffff00'
+                                            ],
+                                            borderColor: [
+                                                '#7267EF',
+                                                '#6610f2',
+                                                '#6f42c1'
+                                            ],
+                                            borderWidth: 2
+                                        }]
+                                    };
+                    
+                                    // Configurar las opciones del gráfico
+                                    var options = {
+                                        indexAxis: 'y',
+                                        responsive: true,
+                                        plugins: {
+                                            legend: {
+                                                position: 'top',
+                                            },
+                                            title: {
+                                                display: true,
+                                                text: 'Estado de los Productos'
+                                            }
+                                        }
+                                    };
+                    
+                                    // Dibujar el gráfico
+                                    var ctx = document.getElementById('miGraficoBarras').getContext('2d');
+                                    var miGraficoBarras = new Chart(ctx, {
+                                        type: 'bar',
+                                        data: data,
+                                        options: options
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h5>Nuevos Productos</h5>
+                        </div>
+                        <div class="pro-scroll" style="height:255px;position:relative; overflow: auto;">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover m-b-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Product Name</th>
+                                                <th>Image</th>
+                                                <th>Status</th>
+                                                <th>Stock</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for producto in productos %}
+                                            <tr id="producto{{ producto.id }}">
+                                                <td>{{ producto.nombre | title }}</td>
+                                                <td><img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}"
+                                                        style="max-width: 100px;"></td>
+                                                <td>
+                                                    {% if producto.estatus == 'desactualizado' %}
+                                                    <div><label class="badge bg-light-primary">{{ producto.estatus |title }}</label></div>
+                                                    {% elif producto.estatus == 'exito' %}
+                                                    <div><label class="badge bg-light-success">{{ producto.estatus |title }}</label></div>
+                                                    {% elif producto.estatus == 'agotado' %}
+                                                    <div><label class="badge bg-light-warning">{{ producto.estatus |title }}</label></div>
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ producto.stock }}</td>
+                                                <td>{{ producto.precio }}</td>
+                                            </tr>
+                                            {% empty %}
+                                            <tr>
+                                                <td colspan="6">No hay productos disponibles.</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- customer-section end -->
+            
+        </div>
+        <!-- [ Main Content ] end -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchInput = document.getElementById('searchInput');
+                const tablaProductos = document.querySelector('.table');
+            
+                searchInput.addEventListener('input', function() {
+                    const valorBusqueda = searchInput.value.toLowerCase().trim();
+            
+                    tablaProductos.querySelectorAll('tbody tr').forEach(function(fila) {
+                        const textoFila = fila.textContent.toLowerCase();
+            
+                        if (textoFila.includes(valorBusqueda)) {
+                            fila.style.display = '';
+                        } else {
+                            fila.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            </script>
+    </div>
+    </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 11]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade
+               <br/>to any of the following web browsers to access this website.
+            </p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (11 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Js -->
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/feather.min.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
+    <!-- <script src="assets/js/uikit.min.js"></script> -->
+
+    <!-- Apex Chart -->
+    <script src="assets/js/plugins/apexcharts.min.js"></script>
+
+    <!-- custom-chart js -->
+    <script src="assets/js/pages/dashboard-sale.js"></script>
+</body>
+
+</html>

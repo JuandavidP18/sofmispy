@@ -1,0 +1,632 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inventario</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords"
+        content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css' %}">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" id="main-style-link">
+
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+    <!-- [ Mobile header ] start -->
+    <div class="pc-mob-header pc-header">
+        <div class="pcm-logo">
+            <img src="assets/images/logo.svg" alt="" class="logo logo-lg">
+        </div>
+        <div class="pcm-toolbar">
+            <a href="#!" class="pc-head-link" id="mobile-collapse">
+                <div class="hamburger hamburger--arrowturn">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                <i data-feather="align-right"></i>
+            </a>
+            <a href="#!" class="pc-head-link" id="header-collapse">
+                <i data-feather="more-vertical"></i>
+            </a>
+        </div>
+    </div>
+    <!-- [ Mobile header ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="index.php" class="b-brand">
+                    <!-- ========   change your logo hear   ============ -->
+                    <img src="images\logo_2.png" alt="" class="logo logo-lg" height="35">
+                    <img src="assets/images/logo-sm.svg" alt="" class="logo logo-sm">
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption">
+                        <label>Navegacion</label>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'dashboard' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">home</i></span><span
+                                class="pc-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="pc-item pc-caption">
+                        <label>Elementos</label>
+                        <span>Modulos</span>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'ventas' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">shop</i></span><span
+                                class="pc-mtext">Ventas</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'inventario' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">power</i></span><span
+                                class="pc-mtext">Inventario</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'compras' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Compras</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'reportes' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Reportes</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="pc-header ">
+        <div class="header-wrapper">
+            <div class="mr-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link active dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu pc-h-dropdown">
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">account_circle</i>
+                                <span>Mi Cuenta</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">settings</i>
+                                <span>Configuraciones</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ml-auto">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="material-icons-two-tone">search</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+                            <form class="px-3" id="searchForm">
+                                <div class="form-group mb-0 d-flex align-items-center">
+                                    <i data-feather="search"></i>
+                                    <input type="search" id="searchInput" class="form-control border-0 shadow-none"
+                                        placeholder="Buscar aquí...">
+                                </div>
+                            </form>                                                    
+                        </div>
+                    </li>
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{% static 'images/users.jpg' %}"
+                                alt="user-image" class="user-avtar">
+                            <span>
+                                <span class="user-name">Juan David</span>
+                                <span class="user-desc">Administrator</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+
+                            <a href="auth-signin.html" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar Sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Inventario registro</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Inventario resumen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card prod-p-card background-pattern">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5">Total Productos</h6>
+                                    <h3 class="m-b-0"><font color="#5f4dee">${{ total_dinero_productos }}</font></h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="material-icons-two-tone text-primary">card_giftcard</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card prod-p-card bg-primary background-pattern-white">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Nuevos Productos</h6>
+                                    <h3 class="m-b-0"><font color="white">{{ nuevos_productos }}</font></h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="material-icons-two-tone text-white">local_mall</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card prod-p-card bg-primary background-pattern-white">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Productos Activos</h6>
+                                    <h3 class="m-b-0"><font color="white">{{ cantidad_productos_activos }}</font></h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="material-icons-two-tone text-white">monetization_on</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card prod-p-card background-pattern">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5">Productos Agotados</h6>
+                                    <h3 class="m-b-0"><font color="#5f4dee">{{ cantidad_productos_agotados }}</font></h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="material-icons-two-tone text-primary">local_offer</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card table-card">
+                <div class="card-header">
+                    <div class="row">
+                        <center>
+                            <h3>Productos</h3>
+                        </center><br><br>
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLiveLabel">Nuevo Producto</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <form action="{% url 'registrar_producto' %}" method="post"
+                                                            enctype="multipart/form-data">
+                                                            {% csrf_token %}
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="product-name">Nombre del
+                                                                    Producto</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="product-name"
+                                                                    placeholder="Nombre del Producto">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="product-image">Imagen del
+                                                                    Producto</label>
+                                                                <input type="file" class="form-control"
+                                                                    name="product-image">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="product-status">Estatus</label>
+                                                                <select class="form-control" name="product-status">
+                                                                    <option value="desactualizado">Desactualizado
+                                                                    </option>
+                                                                    <option value="exito">Éxito</option>
+                                                                    <option value="agotado">Agotado</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="product-price">Precio</label>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-text">$</span>
+                                                                    <input type="text" class="form-control"
+                                                                        name="product-price" placeholder="Precio"
+                                                                        aria-label="Amount (to the nearest dollar)">
+                                                                    <span class="input-group-text"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="product-stock">Stock</label>
+                                                                <input type="number" class="form-control"
+                                                                    name="product-stock" placeholder="Stock">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <center>
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Registrar</button>
+                                                                </center>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn  btn-primary" data-toggle="modal"
+                                    data-target="#exampleModalLive">Nuevo Producto</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pro-scroll" style="height:255px;position:relative;">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover m-b-0">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Image</th>
+                                    <th>Status</th>
+                                    <th>Stock</th>
+                                    <th>Price</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for producto in productos %}
+                                <tr id="producto{{ producto.id }}">
+                                <tr>
+                                    <td>{{ producto.nombre | title }}</td>
+                                    <td><img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}"
+                                            style="max-width: 100px;"></td>
+                                    <td>
+                                        {% if producto.estatus == 'desactualizado' %}
+                                            <div><label class="badge bg-light-primary">{{ producto.estatus | title }}</label></div>
+                                        {% elif producto.estatus == 'exito' %}
+                                            <div><label class="badge bg-light-success">{{ producto.estatus | title }}</label></div>
+                                        {% elif producto.estatus == 'agotado' %}
+                                            <div><label class="badge bg-light-warning">{{ producto.estatus | title }}</label></div>
+                                        {% endif %}
+                                    </td>                                            
+                                    <td>{{ producto.stock }}</td>
+                                    <td>{{ producto.precio }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-link p-0" onclick="showModalEdit('{{ producto.id }}')">
+                                            <i class="icon feather icon-edit f-16 text-success"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-link p-0" onclick="showDeleteConfirmation('{{ producto.id }}')">
+                                            <i class="feather icon-trash-2 ml-3 f-16 text-danger"></i>
+                                        </button>                                                                         
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="6">No hay productos disponibles.</td>
+                                </tr>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const tablaProductos = document.querySelector('.table');
+    
+        searchInput.addEventListener('input', function() {
+            const valorBusqueda = searchInput.value.toLowerCase().trim();
+    
+            tablaProductos.querySelectorAll('tbody tr').forEach(function(fila) {
+                const textoFila = fila.textContent.toLowerCase();
+    
+                if (textoFila.includes(valorBusqueda)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    });
+    </script>
+    <!-- Agrega este código donde necesitas el modal -->
+    <div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Editar Producto</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url 'editar_producto' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- Agrega un campo oculto para almacenar el ID del producto -->
+                        <input type="hidden" id="editProductoId" name="producto_id">
+
+                        <div class="mb-3">
+                            <label for="editNombreProducto" class="form-label">Nombre del Producto</label>
+                            <input type="text" class="form-control" id="editNombreProducto" name="nombre_producto"
+                                placeholder="Nombre del Producto" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editEstatus" class="form-label">Estatus</label>
+                            <select class="form-control" id="editEstatus" name="estatus" required>
+                                <option value="desactualizado">Desactualizado</option>
+                                <option value="exito">Éxito</option>
+                                <option value="agotado">Agotado</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editPrecio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" id="editPrecio" name="precio" placeholder="Precio"
+                                aria-label="Amount (to the nearest dollar)" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editStock" class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="editStock" name="stock" placeholder="Stock"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editImagenProducto" class="form-label">Cambiar Imagen del Producto</label>
+                            <input type="file" class="form-control" id="editImagenProducto" name="imagen_producto">
+                        </div>
+
+                        <!-- Otros campos del formulario -->
+
+                        <hr>
+                        <div class="mb-0">
+                            <button type="submit" class="btn btn-primary mr-2">Guardar Cambios</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showModalEdit(producto_id) {
+            // Lógica para mostrar el modal de edición
+            // Enviar una solicitud AJAX para obtener los detalles del producto usando el ID
+            $.ajax({
+                url: '/obtener_detalles_producto/',
+                method: 'GET',
+                data: {
+                    'producto_id': producto_id
+                },
+                success: function (response) {
+                    // Rellenar el formulario de edición con los detalles del producto obtenidos del servidor
+                    $('#editProductoId').val(response.id);
+                    $('#editNombreProducto').val(response.nombre);
+                    $('#editEstatus').val(response.estatus);
+                    $('#editPrecio').val(response.precio);
+                    $('#editStock').val(response.stock);
+
+                    // Mostrar el modal de edición
+                    $('#editarProductoModal').modal('show'); // El identificador del modal debe coincidir con el utilizado en el HTML
+                },
+                error: function (xhr, status, error) {
+                    // Manejar errores si la solicitud AJAX falla
+                    console.error('Error al obtener los detalles del producto:', error);
+                    alert('Error al obtener los detalles del producto. Inténtalo de nuevo más tarde.');
+                }
+            });
+        }
+    </script>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que deseas eliminar este producto?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <form action="{% url 'eliminar_producto' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" id="deleteProductId" name="product_id" value="">
+                        <!-- Reemplaza {{ producto.id }} con el ID del producto actual -->
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>                                      
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showDeleteConfirmation(productId) {
+            // Establecer el ID del producto en el campo del formulario de eliminación
+            document.getElementById('deleteProductId').value = productId;
+    
+            // Mostrar el modal de confirmación de eliminación
+            $('#confirmDeleteModal').modal('show');
+        }
+    </script>
+
+    
+    <!-- support-section end -->
+
+    <div class="col-xl-6 col-md-12">
+        <div class="card feed-card">
+            <div class="feed-scroll" style="height:100%;position:relative;">
+
+            </div>
+        </div>
+    </div>
+    <!-- customer-section end -->
+    </div>
+    <!-- [ Main Content ] end -->
+    </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 11]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade
+               <br/>to any of the following web browsers to access this website.
+            </p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (11 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Js -->
+    <script src="{% static 'assets/js/vendor-all.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
+    <!-- <script src="assets/js/uikit.min.js"></script> -->
+
+    <!-- Apex Chart -->
+    <script src="{% static 'assets/js/plugins/apexcharts.min.js' %}"></script>
+
+    <!-- custom-chart js -->
+    <script src="{% static 'assets/js/pages/dashboard-sale.js' %}"></script>
+</body>
+
+</html>

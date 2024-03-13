@@ -1,0 +1,409 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Reportes</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords"
+        content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+
+    <!-- font css -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css' %}">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" id="main-style-link">
+
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+    <!-- [ Mobile header ] start -->
+    <div class="pc-mob-header pc-header">
+        <div class="pcm-logo">
+            <img src="assets/images/logo.svg" alt="" class="logo logo-lg">
+        </div>
+        <div class="pcm-toolbar">
+            <a href="#!" class="pc-head-link" id="mobile-collapse">
+                <div class="hamburger hamburger--arrowturn">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                <i data-feather="align-right"></i>
+            </a>
+            <a href="#!" class="pc-head-link" id="header-collapse">
+                <i data-feather="more-vertical"></i>
+            </a>
+        </div>
+    </div>
+    <!-- [ Mobile header ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="index.php" class="b-brand">
+                    <!-- ========   change your logo hear   ============ -->
+                    <img src="images\logo_2.png" alt="" class="logo logo-lg" height="35">
+                    <img src="images/logo.png" alt="" class="logo logo-sm">
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption">
+                        <label>Navegacion</label>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'dashboard' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">home</i></span><span
+                                class="pc-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="pc-item pc-caption">
+                        <label>Elementos</label>
+                        <span>Modulos</span>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'ventas' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">shop</i></span><span
+                                class="pc-mtext">Ventas</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'inventario' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">power</i></span><span
+                                class="pc-mtext">Inventario</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'compras' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Compras</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'reportes' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Reportes</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="pc-header ">
+        <div class="header-wrapper">
+            <div class="mr-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link active dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu pc-h-dropdown">
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">account_circle</i>
+                                <span>Mi Cuenta</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">settings</i>
+                                <span>Configuraciones</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ml-auto">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="material-icons-two-tone">search</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+                            <form class="px-3">
+                                <div class="form-group mb-0 d-flex align-items-center">
+                                    <i data-feather="search"></i>
+                                    <input type="search" class="form-control border-0 shadow-none"
+                                        placeholder="Search here. . .">
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{% static 'images/users.jpg' %}"
+                                alt="user-image" class="user-avtar">
+                            <span>
+                                <span class="user-name">Juan David</span>
+                                <span class="user-desc">Administrator</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+
+                            <a href="auth-signin.html" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar Sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Dashboard sale</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Dashboard resumen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="container-repors">
+                <br><br><br>
+                <!-- support-section start -->
+                <div class="card flat-card">
+                    <div class="row-table">
+                        <div class="col-sm-6 card-body br">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="material-icons-two-tone text-primary mb-1">group</i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>1</h5>
+                                    <span>Usuarios</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 d-none d-md-table-cell d-lg-table-cell d-xl-table-cell card-body br">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="material-icons-two-tone text-primary mb-1">language</i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>$1252</h5>
+                                    <span>Vistas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="material-icons-two-tone text-primary mb-1">unarchive</i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>563</h5>
+                                    <span>Productos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-table">
+                        <div class="col-sm-6 card-body br">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="material-icons-two-tone text-primary mb-1">swap_horizontal_circle</i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>3550</h5>
+                                    <span>Provedores</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 d-none d-md-table-cell d-lg-table-cell d-xl-table-cell card-body br">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="material-icons-two-tone text-primary mb-1">cloud_download</i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>3550</h5>
+                                    <span>Descargas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="material-icons-two-tone text-primary mb-1">shopping_cart</i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>45</h5>
+                                    <span>Ventas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <h5></h5>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Reporte de Ventas</h5>
+                                <p class="card-text">Reporte de todas las ventas realizadas</p>
+                                <a href="{% url 'generar_reporte_ventas_pdf' %}" id="descargarVentasPDF" class="btn btn-primary">Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("descargarVentasPDF").addEventListener("click", function(event){
+                            event.preventDefault();
+                            window.location.href = this.getAttribute("href");
+                        });
+                    </script>
+                    <div class="col-sm-12 col-md-4">
+                        <h5></h5>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Reporte de Productos</h5>
+                                <p class="card-text">Reporte del Inventario de los productos</p>
+                                <a href="{% url 'generar_reporte_pdf' %}" id="descargarPDF"
+                                    class="btn btn-primary">Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("descargarPDF").addEventListener("click", function (event) {
+                            event.preventDefault();
+                            window.location.href = this.getAttribute("href");
+                        });
+                    </script>
+                    <div class="col-sm-12 col-md-4">
+                        <h5></h5>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Reporte de Usuarios</h5>
+                                <p class="card-text">Reporte de los usuarios registrados</p>
+                                <a href="{% url 'generar_reporte_usuarios_pdf' %}" id="descargarUsuariosPDF" class="btn btn-primary">Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("descargarUsuariosPDF").addEventListener("click", function(event){
+                            event.preventDefault();
+                            window.location.href = this.getAttribute("href");
+                        });
+                    </script>   
+                </div>
+            </div>
+        </div>
+        <!-- customer-section end -->
+    </div>
+    <!-- [ Main Content ] end -->
+    </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 11]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade
+               <br/>to any of the following web browsers to access this website.
+            </p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (11 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Js -->
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/feather.min.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
+    <!-- <script src="assets/js/uikit.min.js"></script> -->
+
+    <!-- Apex Chart -->
+    <script src="assets/js/plugins/apexcharts.min.js"></script>
+
+    <!-- custom-chart js -->
+    <script src="assets/js/pages/dashboard-sale.js"></script>
+</body>
+
+</html>

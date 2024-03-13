@@ -1,0 +1,576 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inventario</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords"
+        content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css' %}">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" id="main-style-link">
+
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+    <!-- [ Mobile header ] start -->
+    <div class="pc-mob-header pc-header">
+        <div class="pcm-logo">
+            <img src="assets/images/logo.svg" alt="" class="logo logo-lg">
+        </div>
+        <div class="pcm-toolbar">
+            <a href="#!" class="pc-head-link" id="mobile-collapse">
+                <div class="hamburger hamburger--arrowturn">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                <i data-feather="align-right"></i>
+            </a>
+            <a href="#!" class="pc-head-link" id="header-collapse">
+                <i data-feather="more-vertical"></i>
+            </a>
+        </div>
+    </div>
+    <!-- [ Mobile header ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="index.php" class="b-brand">
+                    <!-- ========   change your logo hear   ============ -->
+                    <img src="images\logo_2.png" alt="" class="logo logo-lg" height="35">
+                    <img src="assets/images/logo-sm.svg" alt="" class="logo logo-sm">
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption">
+                        <label>Navegacion</label>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'dashboard' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">home</i></span><span
+                                class="pc-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="pc-item pc-caption">
+                        <label>Elementos</label>
+                        <span>Modulos</span>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'ventas' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">shop</i></span><span
+                                class="pc-mtext">Ventas</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'inventario' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">power</i></span><span
+                                class="pc-mtext">Inventario</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'compras' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Compras</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'reportes' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Reportes</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="pc-header ">
+        <div class="header-wrapper">
+            <div class="mr-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link active dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu pc-h-dropdown">
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">account_circle</i>
+                                <span>Mi Cuenta</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">settings</i>
+                                <span>Configuraciones</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ml-auto">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="material-icons-two-tone">search</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+                            <form class="px-3" id="searchForm">
+                                <div class="form-group mb-0 d-flex align-items-center">
+                                    <i data-feather="search"></i>
+                                    <input type="search" id="searchInput" class="form-control border-0 shadow-none"
+                                        placeholder="Buscar aquí...">
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{% static 'images/users.jpg' %}" alt="user-image" class="user-avtar">
+                            <span>
+                                <span class="user-name">Juan David</span>
+                                <span class="user-desc">Administrator</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+
+                            <a href="auth-signin.html" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar Sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Inventario registro</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Inventario resumen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card prod-p-card background-pattern">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5">Total Proveedores Activos</h6>
+                                    <h3 class="m-b-0">
+                                        <font color="#5f4dee">{{ total_proveedores_activos }}</font>
+                                    </h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="material-icons-two-tone text-primary">card_giftcard</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card prod-p-card bg-primary background-pattern-white">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Nuevos Proveedores</h6>
+                                    <h3 class="m-b-0">
+                                        <font color="white">{{ total_proveedores_nuevos }}</font>
+                                    </h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="material-icons-two-tone text-white">local_mall</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="card table-card">
+                <div class="card-header">
+                    <div class="row">
+                        <center>
+                            <h3>Proveedores</h3>
+                        </center><br><br>
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLiveLabel">Nuevo Proveedor</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <form method="post" action="{% url 'agregar_proveedor' %}">
+                                                            {% csrf_token %}
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="product-name">Nombre del
+                                                                    Proveedor</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="product-name"
+                                                                    placeholder="Nombre del Producto" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="product-status">Estatus</label>
+                                                                <select class="form-control" name="product-status"
+                                                                    required>
+                                                                    <option value="activo">Activo</option>
+                                                                    <option value="inactivo">Inactivo</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="product-name">Telefono</label>
+                                                                <input type="number" class="form-control"
+                                                                    name="product-telephone" placeholder="Teléfono"
+                                                                    required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label"
+                                                                    for="product-name">Correo</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="product-email" placeholder="Correo" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <center>
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Registrar</button>
+                                                                </center>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn  btn-primary" data-toggle="modal"
+                                    data-target="#exampleModalLive">Nuevo Proveedor</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pro-scroll" style="height:255px;position:relative;">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover m-b-0">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
+                                    <th>Estado</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for proveedor in proveedores %}
+                                <tr>
+                                    <td>{{ proveedor.nombre }}</td>
+                                    <td>{{ proveedor.telefono }}</td>
+                                    <td>{{ proveedor.correo }}</td>
+                                    <td>{{ proveedor.estatus }}</td>
+                                    <td>
+                                        <!-- Botón "Editar" en la tabla de proveedores -->
+                                        <button type="button" class="btn btn-link p-0"
+                                            onclick="showModalEdit('{{ proveedor.id }}')">
+                                            <i class="icon feather icon-edit f-16 text-success"></i>
+                                        </button>
+
+
+                                        <button type="button" class="btn btn-link p-0"
+                                            onclick="showDeleteConfirmation('{{ proveedor.id }}')">
+                                            <i class="feather icon-trash-2 ml-3 f-16 text-danger"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="6">No hay proveedores disponibles.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Agrega este código donde necesitas el modal -->
+    <div class="modal fade" id="editarProveedorModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <!-- Contenido del modal aquí -->
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Editar Producto</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editarProveedorForm" method="post" action="{% url 'editar_proveedor' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="proveedor_id" id="proveedor_id" value="{{ proveedor.id }}">
+                        <div class="form-group">
+                            <label class="form-label" for="product-name">Nombre del Proveedor</label>
+                            <input type="text" class="form-control" name="product-name"
+                                placeholder="Nombre del Producto" value="{{ proveedor.nombre }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-status">Estatus</label>
+                            <select class="form-control" name="product-status" required>
+                                <option value="activo" {% if proveedor.estatus == 'activo' %}selected{% endif %}>Activo</option>
+                                <option value="inactivo" {% if proveedor.estatus == 'inactivo' %}selected{% endif %}>Inactivo</option>
+                            </select>
+                        </div>  
+                        <div class="form-group">
+                            <label class="form-label" for="product-telephone">Telefono</label>
+                            <input type="number" class="form-control" name="product-telephone" placeholder="Teléfono"
+                                value="{{ proveedor.telefono }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-email">Correo</label>
+                            <input type="text" class="form-control" name="product-email" placeholder="Correo"
+                                value="{{ proveedor.correo }}" required>
+                        </div>
+                        <div class="mb-0">
+                            <button type="submit" class="btn btn-primary mr-2">Guardar Cambios</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Escucha el clic en el botón y abre el modal
+            $('#openModalBtnCustom').click(function () {
+                $('#detalleProveedorModalCustom').modal('show');
+            });
+        });
+    </script>
+    <script>
+        function showModalEdit(proveedorId) {
+            // Asignar el ID del proveedor al campo oculto del formulario
+            $("#proveedor_id").val(proveedorId);
+            // Hacer la solicitud AJAX para obtener los detalles del proveedor
+            $.ajax({
+                url: "{% url 'obtener_detalles_proveedor' %}",
+                type: "GET",
+                data: {
+                    proveedor_id: proveedorId
+                },
+                dataType: "json",
+                success: function (data) {
+                    // Mostrar los detalles del proveedor en el formulario dentro del modal
+                    $("#editarProveedorModal input[name='product-name']").val(data.nombre);
+                    $("#editarProveedorModal select[name='product-status']").val(data.estatus);
+                    $("#editarProveedorModal input[name='product-telephone']").val(data.telefono);
+                    $("#editarProveedorModal input[name='product-email']").val(data.correo);
+                    // Mostrar el modal de edición
+                    $("#editarProveedorModal").modal("show");
+                },
+                error: function (xhr, errmsg, err) {
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        }
+    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que deseas eliminar este proveedor?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <form id="deleteProveedorForm" action="{% url 'eliminar_proveedor' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" id="deleteProveedorId" name="proveedor_id" value="">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDeleteConfirmation(proveedorId) {
+            // Establecer el ID del proveedor en el campo del formulario de eliminación
+            document.getElementById('deleteProveedorId').value = proveedorId;
+
+            // Mostrar el modal de confirmación de eliminación
+            $('#confirmDeleteModal').modal('show');
+        }
+    </script>
+    <!-- support-section end -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchInput');
+            const tablaProductos = document.querySelector('.table');
+
+            searchInput.addEventListener('input', function () {
+                const valorBusqueda = searchInput.value.toLowerCase().trim();
+
+                tablaProductos.querySelectorAll('tbody tr').forEach(function (fila) {
+                    const textoFila = fila.textContent.toLowerCase();
+
+                    if (textoFila.includes(valorBusqueda)) {
+                        fila.style.display = '';
+                    } else {
+                        fila.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <div class="col-xl-6 col-md-12">
+        <div class="card feed-card">
+            <div class="feed-scroll" style="height:100%;position:relative;">
+
+            </div>
+        </div>
+    </div>
+    <!-- customer-section end -->
+    </div>
+    <!-- [ Main Content ] end -->
+    </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 11]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade
+               <br/>to any of the following web browsers to access this website.
+            </p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (11 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Js -->
+    <script src="{% static 'assets/js/vendor-all.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
+    <!-- <script src="assets/js/uikit.min.js"></script> -->
+
+    <!-- Apex Chart -->
+    <script src="{% static 'assets/js/plugins/apexcharts.min.js' %}"></script>
+
+    <!-- custom-chart js -->
+    <script src="{% static 'assets/js/pages/dashboard-sale.js' %}"></script>
+</body>
+
+</html>

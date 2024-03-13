@@ -1,0 +1,771 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Ventas</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords"
+        content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon">
+
+    <!-- font css -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css' %}">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" id="main-style-link">
+    <style>
+        .product-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .product-container input {
+            flex: 1;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .product-container button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+    <!-- [ Mobile header ] start -->
+    <div class="pc-mob-header pc-header">
+        <div class="pcm-logo">
+            <img src="assets/images/logo.svg" alt="" class="logo logo-lg">
+        </div>
+        <div class="pcm-toolbar">
+            <a href="#!" class="pc-head-link" id="mobile-collapse">
+                <div class="hamburger hamburger--arrowturn">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                <i data-feather="align-right"></i>
+            </a>
+            <a href="#!" class="pc-head-link" id="header-collapse">
+                <i data-feather="more-vertical"></i>
+            </a>
+        </div>
+    </div>
+    <!-- [ Mobile header ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="index.php" class="b-brand">
+                    <!-- ========   change your logo hear   ============ -->
+                    <img src="images\logo_2.png" alt="" class="logo logo-lg" height="35">
+                    <img src="assets/images/logo-sm.svg" alt="" class="logo logo-sm">
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption">
+                        <label>Navegacion</label>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'dashboard' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">home</i></span><span
+                                class="pc-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="pc-item pc-caption">
+                        <label>Elementos</label>
+                        <span>Modulos</span>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'ventas' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">shop</i></span><span
+                                class="pc-mtext">Ventas</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'inventario' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">power</i></span><span
+                                class="pc-mtext">Inventario</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'compras' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Compras</span></a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="{% url 'reportes' %}" class="pc-link "><span class="pc-micon"><i
+                                    class="material-icons-two-tone">inbox</i></span><span
+                                class="pc-mtext">Reportes</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="pc-header ">
+        <div class="header-wrapper">
+            <div class="mr-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link active dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu pc-h-dropdown">
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">account_circle</i>
+                                <span>Mi Cuenta</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">settings</i>
+                                <span>Configuraciones</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ml-auto">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="material-icons-two-tone">search</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+                            <form class="px-3" id="searchForm">
+                                <div class="form-group mb-0 d-flex align-items-center">
+                                    <i data-feather="search"></i>
+                                    <input type="search" id="searchInput" class="form-control border-0 shadow-none"
+                                           placeholder="Buscar aquí...">
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{% static 'images/users.jpg' %}"
+                                alt="user-image" class="user-avtar">
+                            <span>
+                                <span class="user-name">Juan David</span>
+                                <span class="user-desc">Administrator</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+
+                            <a href="auth-signin.html" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Cerrar Sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Ventas registro</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Ventas resumen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <!-- support-section start -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card prod-p-card background-pattern">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5">Total Ventas</h6>
+                                        <h3 class="m-b-0">{{ cantidad_ventas }}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="material-icons-two-tone text-primary">card_giftcard</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card prod-p-card bg-primary background-pattern-white">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Ganancias de Hoy</h6>
+                                        <h3 class="m-b-0 text-white">${{ ganancias_hoy }}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="material-icons-two-tone text-white">local_mall</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h5>Ventas</h5>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLiveLabel">Nueva Venta</h5>
+                                            <button type="button" class="btn-close" data-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <form id="venta-form" action="{% url 'crear_venta' %}"
+                                                        method="post">
+                                                        {% csrf_token %}
+
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="customer-name">Nombre del
+                                                                Cliente</label>
+                                                            <input type="text" class="form-control" id="customer-name"
+                                                                name="customer_name" placeholder="Nombre del Cliente">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="product-search">Buscar
+                                                                Producto</label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control"
+                                                                    id="product-search" name="product-search"
+                                                                    placeholder="Ingrese el nombre del producto">
+                                                                <button class="btn btn-outline-secondary" type="button"
+                                                                    onclick="buscarProducto()">BUSCAR</button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="product-list">Lista de
+                                                                Productos</label>
+                                                            <select class="form-control" id="product-list"
+                                                                name="product-list" size="5"
+                                                                style="margin-bottom: 10px;">
+                                                                {% for producto in productos %}
+                                                                <option value="{{ producto.id }}"
+                                                                    data-stock="{{ producto.stock }}"
+                                                                    data-precio="{{ producto.precio }}">
+                                                                    {{ producto.nombre | title }} $ {{ producto.precio}}
+                                                                </option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group" id="quantity-inputs">
+                                                            <label class="form-label">Cantidad por Producto</label>
+                                                            <div id="product-quantity-inputs"></div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="total">Total</label>
+                                                            <input id="total" name="total" class="form-control"
+                                                                type="text" readonly>
+                                                        </div>
+
+                                                        <input type="hidden" name="productos_seleccionados"
+                                                            id="productos-seleccionados-hidden">
+                                                        <input type="hidden" name="cantidades" id="cantidades-hidden">
+                                                        <script>
+                                                            // Función para actualizar los campos ocultos con la información de productos seleccionados y cantidades
+                                                            function actualizarCamposOcultos() {
+                                                                var productosSeleccionados = [];
+                                                                var cantidades = [];
+
+                                                                // Iterar sobre los productos seleccionados y sus cantidades
+                                                                selectedProducts.forEach(function (product) {
+                                                                    productosSeleccionados.push(product.id);
+                                                                    cantidades.push(document.querySelector(`.product-container[data-product-id="${product.id}"] .product-quantity-input`).value);
+                                                                });
+
+                                                                // Actualizar los valores de los campos ocultos
+                                                                document.getElementById('productos-seleccionados-hidden').value = JSON.stringify(productosSeleccionados);
+                                                                document.getElementById('cantidades-hidden').value = JSON.stringify(cantidades);
+                                                            }
+
+                                                            // Evento para enviar el formulario cuando se hace clic en el botón de submit
+                                                            document.getElementById('venta-form').addEventListener('submit', function (event) {
+                                                                // Actualizar los campos ocultos antes de enviar el formulario
+                                                                actualizarCamposOcultos();
+                                                            });
+                                                        </script>
+
+                                                        <script>
+                                                            // Lista para almacenar los productos seleccionados
+                                                            var selectedProducts = [];
+
+                                                            function eliminarProducto(event) {
+                                                                var productId = event.target.getAttribute('data-product-id');
+
+                                                                // Filtrar los productos seleccionados para eliminar el producto actual
+                                                                selectedProducts = selectedProducts.filter(function (product) {
+                                                                    return product.id !== productId;
+                                                                });
+
+                                                                // Eliminar el producto y su cantidad del DOM
+                                                                var container = event.target.parentNode; // Obtener el contenedor del producto y su cantidad
+                                                                container.parentNode.removeChild(container); // Remover el contenedor del producto y su cantidad del DOM
+
+                                                                // Habilitar la selección del producto en la lista de productos nuevamente
+                                                                document.querySelector(`#product-list option[value="${productId}"]`).disabled = false;
+
+                                                                // Recalcular el total
+                                                                calcularTotal();
+                                                            }
+
+                                                            function verificarCantidad(event) {
+                                                                var cantidadInput = event.target;
+                                                                var maxCantidad = parseInt(cantidadInput.getAttribute("max"));
+                                                                var cantidad = parseInt(cantidadInput.value);
+                                                                if (cantidad > maxCantidad) {
+                                                                    cantidadInput.value = maxCantidad;
+                                                                    alert("La cantidad ingresada supera el stock disponible. Se ha ajustado al máximo disponible.");
+                                                                }
+
+                                                                // Recalcular el total
+                                                                calcularTotal();
+                                                            }
+
+                                                            function calcularTotal() {
+                                                                var subtotal = 0;
+
+                                                                // Recorrer todos los productos seleccionados para calcular el subtotal
+                                                                selectedProducts.forEach(function (product) {
+                                                                    var quantityInput = document.querySelector(`.product-container[data-product-id="${product.id}"] .product-quantity-input`);
+                                                                    var cantidad = parseInt(quantityInput.value);
+                                                                    var precio = parseFloat(product.precio);
+                                                                    subtotal += cantidad * precio;
+                                                                });
+
+                                                                // Mostrar el subtotal como total en el elemento input
+                                                                var totalInput = document.getElementById("total");
+                                                                totalInput.value = subtotal.toFixed(2);
+                                                            }
+
+
+                                                            function seleccionarProducto() {
+                                                                var productList = document.getElementById("product-list");
+
+                                                                // Obtener el índice de la opción seleccionada en la lista de productos
+                                                                var selectedIndex = productList.selectedIndex;
+
+                                                                // Obtener el producto seleccionado
+                                                                var selectedOption = productList.options[selectedIndex];
+
+                                                                // Verificar si el producto ya ha sido seleccionado
+                                                                var productId = selectedOption.value;
+                                                                var productName = selectedOption.textContent.trim();
+                                                                if (selectedProducts.some(function (product) { return product.id === productId; })) {
+                                                                    alert("Este producto ya ha sido seleccionado.");
+                                                                    return; // No agregar el producto nuevamente
+                                                                }
+
+                                                                // Obtener el stock del producto seleccionado
+                                                                var stock = parseInt(selectedOption.getAttribute("data-stock"));
+
+                                                                // Crear un nuevo contenedor para el nombre del producto, la cantidad y el botón de eliminar
+                                                                var productContainer = document.createElement("div");
+                                                                productContainer.className = "product-container";
+                                                                productContainer.setAttribute("data-product-id", productId);
+
+                                                                // Mostrar el nombre del producto
+                                                                var productNameSpan = document.createElement("span");
+                                                                productNameSpan.textContent = productName;
+                                                                productContainer.appendChild(productNameSpan);
+
+                                                                // Crear un nuevo campo de entrada para la cantidad
+                                                                var quantityInput = document.createElement("input");
+                                                                quantityInput.type = "number";
+                                                                quantityInput.className = "form-control product-quantity-input";
+                                                                quantityInput.value = 1; // Valor predeterminado de cantidad
+                                                                quantityInput.setAttribute("min", "1"); // Establecer el mínimo de cantidad
+                                                                quantityInput.setAttribute("max", stock); // Establecer el máximo de cantidad según el stock disponible
+                                                                quantityInput.setAttribute("placeholder", "Cantidad"); // Agregar un marcador de posición para el campo de entrada
+                                                                quantityInput.addEventListener("change", verificarCantidad); // Verificar y limitar la cantidad según el stock disponible
+                                                                productContainer.appendChild(quantityInput); // Agregar el campo de entrada para la cantidad al contenedor
+
+                                                                // Crear un nuevo botón de eliminar
+                                                                var deleteButton = document.createElement("button");
+                                                                deleteButton.textContent = "Eliminar";
+                                                                deleteButton.className = "btn btn-danger delete-button";
+                                                                deleteButton.setAttribute('data-product-id', productId);
+                                                                deleteButton.addEventListener("click", eliminarProducto); // Agregar un event listener para eliminar el producto
+                                                                productContainer.appendChild(deleteButton); // Agregar el botón de eliminar al contenedor
+
+                                                                // Agregar el contenedor del producto y su cantidad a la sección "Cantidad por Producto"
+                                                                document.getElementById("product-quantity-inputs").appendChild(productContainer);
+
+                                                                // Agregar el producto seleccionado a la lista de productos seleccionados
+                                                                selectedProducts.push({ id: productId, name: productName, precio: selectedOption.getAttribute("data-precio") });
+
+                                                                // Desactivar la opción seleccionada en la lista de productos
+                                                                selectedOption.disabled = true;
+
+                                                                // Limpiar la selección en la lista de productos
+                                                                productList.selectedIndex = -1;
+
+                                                                // Recalcular el total
+                                                                calcularTotal();
+                                                            }
+
+                                                            // Escuchar el evento de cambio en la lista de productos para manejar la selección
+                                                            document.getElementById("product-list").addEventListener("change", seleccionarProducto);
+                                                        </script>
+
+                                                        <div class="form-group mb-0">
+                                                            <center>
+                                                                <!-- Cambiado el tipo de botón a submit -->
+                                                                <button type="submit"
+                                                                    class="btn btn-primary mr-2">Submit</button>
+                                                                <button type="reset"
+                                                                    class="btn btn-light">Reset</button>
+                                                            </center>
+                                                        </div>
+                                                    </form>
+                                                    <script>
+                                                        function buscarProducto() {
+                                                            var searchTerm = document.getElementById("product-search").value.toLowerCase();
+                                                            var productList = document.getElementById("product-list");
+                                                            var productOptions = productList.getElementsByTagName("option");
+
+                                                            for (var i = 0; i < productOptions.length; i++) {
+                                                                var productName = productOptions[i].textContent.toLowerCase();
+                                                                if (productName.includes(searchTerm)) {
+                                                                    productOptions[i].style.display = ""; // Mostrar opción si coincide con el término de búsqueda
+                                                                } else {
+                                                                    productOptions[i].style.display = "none"; // Ocultar opción si no coincide con el término de búsqueda
+                                                                }
+                                                            }
+                                                        }
+
+                                                        // Escuchar cambios en el campo de búsqueda para realizar la búsqueda automáticamente
+                                                        document.getElementById("product-search").addEventListener("input", buscarProducto);
+                                                    </script>
+
+                                                    <script>
+                                                        // Obtener el formulario
+                                                        var form = document.getElementById('venta-form');
+
+                                                        // Escuchar el evento de envío del formulario
+                                                        form.addEventListener('submit', function (event) {
+                                                            // Prevenir el envío del formulario por defecto
+                                                            event.preventDefault();
+
+                                                            // Actualizar los campos ocultos antes de enviar el formulario
+                                                            actualizarCamposOcultos();
+
+                                                            // Enviar el formulario utilizando fetch API
+                                                            fetch(form.action, {
+                                                                method: form.method,
+                                                                body: new FormData(form),
+                                                                headers: {
+                                                                    'X-CSRFToken': '{{ csrf_token }}' // Asegúrate de reemplazar esto con el valor adecuado en tu plantilla
+                                                                }
+                                                            })
+                                                                .then(function (response) {
+                                                                    // Verificar el estado de la respuesta
+                                                                    if (response.ok) {
+                                                                        // Recargar la página después de 1 segundo (1000 milisegundos)
+                                                                        setTimeout(function () {
+                                                                            location.reload();
+                                                                        }, 1000);
+                                                                    } else {
+                                                                        // Manejar el caso si la respuesta no fue exitosa
+                                                                        console.error('Hubo un error al enviar el formulario.');
+                                                                    }
+                                                                })
+                                                                .catch(function (error) {
+                                                                    // Manejar cualquier error de red u otros errores
+                                                                    console.error('Hubo un error al enviar el formulario:', error);
+                                                                });
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn  btn-primary" data-toggle="modal"
+                                data-target="#exampleModalLive">Nuevo Venta</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-scroll" style="height:255px;position:relative;">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover m-b-0">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre del Cliente</th>
+                                        <th>Fecha</th>
+                                        <th>Total</th>
+                                        <th>Info</th>
+                                        <th>Enviar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for venta in ventas %}
+                                    <tr>
+                                        <td>{{ venta.cliente_nombre }}</td> <!-- Corregir aquí -->
+                                        <td>{{ venta.fecha }}</td>
+                                        <td>{{ venta.total }}</td>
+                                        <td>
+                                            <button type='button' class='btn btn-primary' data-toggle='modal'
+                                                data-target='#detalleVentaModal{{ venta.id }}'>Detalles</button>
+                                        </td>
+                                        <td>
+                                            <a href="#" data-toggle="modal" data-target="#envioCorreoModal{{ venta.id }}"
+                                                class='feather icon-send ml-3 f-16 text-success boton_enviar'></a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const searchInput = document.getElementById('searchInput');
+                                    const tablaProductos = document.querySelector('.table');
+                            
+                                    searchInput.addEventListener('input', function() {
+                                        const valorBusqueda = searchInput.value.toLowerCase().trim();
+                            
+                                        tablaProductos.querySelectorAll('tbody tr').forEach(function(fila) {
+                                            const textoFila = fila.textContent.toLowerCase();
+                            
+                                            if (textoFila.includes(valorBusqueda)) {
+                                                fila.style.display = '';
+                                            } else {
+                                                fila.style.display = 'none';
+                                            }
+                                        });
+                                    });
+                            
+                                    // Feather Icons
+                                    feather.replace();
+                                });
+                            </script>
+
+                            <!-- Modal de Detalles de Venta -->
+                            {% for venta in ventas %}
+                            <div class='modal fade' id='detalleVentaModal{{ venta.id }}' tabindex='-1' role='dialog'
+                                aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+                                <div class='modal-dialog modal-dialog-centered' role='document'>
+                                    <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <h5 class='modal-title'>Detalles de la Venta</h5>
+                                            <button type='button' class='btn-close' data-dismiss='modal'
+                                                aria-label='Close'></button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <p><strong>Nombre del Cliente:</strong> {{ venta.cliente_nombre }}</p>
+                                            <p><strong>Fecha de Venta:</strong> {{ venta.fecha }}</p>
+                                            <p><strong>Total de Venta:</strong> {{ venta.total }}</p>
+                                            <!-- Mostrar detalles relacionados con esta venta -->
+                                            <p><strong>Detalles adicionales:</strong></p>
+                                            <ul>
+                                                {% for detalle_venta in venta.detalleventa_set.all %}
+                                                <li>{{ detalle_venta.producto.nombre }} - Cantidad: {{ detalle_venta.cantidad }}</li>
+                                                <!-- Añade más detalles si es necesario -->
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                        <div class='modal-footer'>
+                                            <button type='button' class='btn btn-secondary'
+                                                data-dismiss='modal'>Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+                            {% for venta in ventas %}
+                            <!-- Modal de Envío de Correo -->
+                            <div class='modal fade' id='envioCorreoModal{{ venta.id }}' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+                                <div class='modal-dialog modal-dialog-centered' role='document'>
+                                    <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <h5 class='modal-title'>Envío de Correo Electrónico</h5>
+                                            <button type='button' class='btn-close' data-dismiss='modal'
+                                                aria-label='Close'></button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <form method='post' action="{% url 'enviar_correo' %}">
+                                                {% csrf_token %}
+                                                <input type='hidden' name='id_venta' value='{{ venta.id }}'>  <!-- Asegúrate de incluir el ID de la venta aquí -->
+                                                <div class='form-group'>
+                                                    <label for='correo'>Correo Electrónico:</label>
+                                                    <input type='email' class='form-control' id='correo' name='correo' required>
+                                                </div>
+                                                <button type='submit' class='btn btn-success'>Enviar Correo</button>
+                                            </form>                                                                             
+                                        </div>
+                                        <div class='modal-footer'>
+                                            <button type='button' class='btn btn-secondary'
+                                                data-dismiss='modal'>Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- Código JavaScript para abrir los modales -->
+                            <script>
+                                // Función para abrir el modal de detalles de venta
+                                function abrirModalDetallesVenta(id) {
+                                    $('#detalleVentaModal' + id).modal('show');
+                                }
+
+                                // Función para abrir el modal de confirmación de eliminación
+                                function abrirModalConfirmarEliminacion(id) {
+                                    $('#confirmDeleteModal' + id).modal('show');
+                                }
+
+                                // Función para abrir el modal de envío de correo
+                                function abrirModalEnvioCorreo(id) {
+                                    $('#envioCorreoModal'+ id).modal('show');
+                                }
+                            </script>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-12">
+            <div class="card feed-card">
+                <div class="feed-scroll" style="height:100%;position:relative;">
+
+                </div>
+            </div>
+        </div>
+        <!-- customer-section end -->
+    </div>
+    <!-- [ Main Content ] end -->
+    </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 11]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade
+               <br/>to any of the following web browsers to access this website.
+            </p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (11 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Js -->
+    <script src="{% static 'assets/js/vendor-all.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
+    <!-- <script src="assets/js/uikit.min.js"></script> -->
+
+    <!-- Apex Chart -->
+    <script src="{% static 'assets/js/plugins/apexcharts.min.js' %}"></script>
+
+    <!-- custom-chart js -->
+    <script src="{% static 'assets/js/pages/dashboard-sale.js' %}"></script>
+</body>
+
+</html>
