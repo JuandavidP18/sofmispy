@@ -44,7 +44,7 @@
     <!-- [ Mobile header ] start -->
     <div class="pc-mob-header pc-header">
         <div class="pcm-logo">
-            <img src="assets/images/logo.svg" alt="" class="logo logo-lg">
+            <img src="{% static 'assets/images/logo_2.png' %}" alt="" class="logo logo-lg">
         </div>
         <div class="pcm-toolbar">
             <a href="#!" class="pc-head-link" id="mobile-collapse">
@@ -68,10 +68,10 @@
     <nav class="pc-sidebar ">
         <div class="navbar-wrapper">
             <div class="m-header">
-                <a href="index.php" class="b-brand">
+                <a href="" class="b-brand">
                     <!-- ========   change your logo hear   ============ -->
-                    <img src="images\logo_2.png" alt="" class="logo logo-lg" height="35">
-                    <img src="images/logo.png" alt="" class="logo logo-sm">
+                    <img src="{% static 'images\logo_2.png' %}" alt="" class="logo logo-lg" height="35">
+                    <img src="{% static 'images/logo.png' %}" alt="" class="logo logo-sm">
                 </a>
             </div>
             <div class="navbar-content">
@@ -133,7 +133,7 @@
                                 <i class="material-icons-two-tone">settings</i>
                                 <span>Configuraciones</span>
                             </a>
-                            <a href="#!" class="dropdown-item">
+                            <a href="{% url 'inicio' %}" class="dropdown-item">
                                 <i class="material-icons-two-tone">chrome_reader_mode</i>
                                 <span>Cerrar sesion</span>
                             </a>
@@ -149,11 +149,11 @@
                             <i class="material-icons-two-tone">search</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
-                            <form class="px-3">
+                            <form class="px-3" id="searchForm">
                                 <div class="form-group mb-0 d-flex align-items-center">
                                     <i data-feather="search"></i>
-                                    <input type="search" class="form-control border-0 shadow-none"
-                                        placeholder="Search here. . .">
+                                    <input type="search" id="searchInput" class="form-control border-0 shadow-none"
+                                        placeholder="Buscar aquí...">
                                 </div>
                             </form>
                         </div>
@@ -170,7 +170,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
 
-                            <a href="auth-signin.html" class="dropdown-item">
+                            <a href="{% url 'inicio' %}" class="dropdown-item">
                                 <i class="material-icons-two-tone">chrome_reader_mode</i>
                                 <span>Cerrar Sesion</span>
                             </a>
@@ -195,7 +195,7 @@
                                 <h5 class="m-b-10">Dashboard sale</h5>
                             </div>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'reportes' %}">Home</a></li>
                                 <li class="breadcrumb-item">Dashboard resumen</li>
                             </ul>
                         </div>

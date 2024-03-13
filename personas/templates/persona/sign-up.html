@@ -53,7 +53,7 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
             <!-- Image Logo -->
-            <a href="index.php"><img class="logo"  src="images/logo.png" alt="alternative"></a> 
+            <a href=""><img class="logo"  src="{% static 'images/logo.png' %}" alt="alternative"></a> 
             
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +91,7 @@
 
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.php">INGRESAR</a>
+                    <a class="btn-outline-sm" href="{% url 'log_in' %}">INGRESAR</a>
                 </span>
             </div>
         </div> <!-- end of container -->
@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Registrate</h1>
-                   <p>Completa el formulario para registrarte ¿Ya tienes cuenta? <a class="white" href="log-in.php">Inicia Sesion</a></p> 
+                   <p>Completa el formulario para registrarte ¿Ya tienes cuenta? <a class="white" href="{% url 'log_in' %}">Inicia Sesion</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form id="signUpForm" data-toggle="validator" data-focus="false" method="post" action="{% url 'registro_usuario' %}">
